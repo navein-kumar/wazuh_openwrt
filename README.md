@@ -1,5 +1,6 @@
 ```
 #enable syslog and fowrd to rsylog sever frm openwrit 
+# Login ssh to openwrt root shell --> update below cmd fr sending IP (rsyslog server IP )and port number
 
 uci set system.@system[0].log_ip='10.20.0.10'
 uci set system.@system[0].log_port='515'
