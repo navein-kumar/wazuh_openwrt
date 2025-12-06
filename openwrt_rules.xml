@@ -1,0 +1,53 @@
+<!-- Modify it at your will. -->
+
+<group name="openwrt,">
+
+  <rule id="100300" level="3">
+    <program_name>dropbear</program_name>
+    <description>OpenWrt dropbear event Logs</description>
+  </rule>
+
+  <rule id="100301" level="4">
+    <if_sid>100300</if_sid>
+    <match>Auth succeeded</match>
+    <description>OpenWrt: SSH login success</description>
+    <group>openwrt_auth, authentication_success,</group>
+  </rule>
+
+  <rule id="100302" level="4">
+    <if_sid>100300</if_sid>
+    <match>Child connection</match>
+    <description>OpenWrt: SSH connection started</description>
+  </rule>
+
+  <rule id="100303" level="4">
+    <if_sid>100300</if_sid>
+    <match>Exit</match>
+    <description>OpenWrt: SSH session ended</description>
+  </rule>
+
+  <rule id="100304" level="10">
+    <if_sid>100300</if_sid>
+    <match>Bad password</match>
+    <description>OpenWrt: SSH login failed</description>
+    <group>openwrt_auth, authentication_failed,</group>
+  </rule>
+
+  <rule id="100310" level="3">
+    <program_name>hostapd</program_name>
+    <description>OpenWrt hostapd event Logs</description>
+  </rule>
+
+  <rule id="100311" level="4">
+    <if_sid>100310</if_sid>
+    <match>AP-STA-CONNECTED</match>
+    <description>OpenWrt: WiFi client connected</description>
+  </rule>
+
+  <rule id="100312" level="4">
+    <if_sid>100310</if_sid>
+    <match>AP-STA-DISCONNECTED</match>
+    <description>OpenWrt: WiFi client disconnected</description>
+  </rule>
+
+</group>
