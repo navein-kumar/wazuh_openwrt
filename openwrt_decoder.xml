@@ -1,0 +1,37 @@
+<decoder name="openwrt-dropbear">
+  <program_name>dropbear</program_name>
+</decoder>
+
+<decoder name="openwrt-dropbear-auth">
+  <parent>openwrt-dropbear</parent>
+  <regex>Auth succeeded with \.+ for '(\S+)' from (\S+):</regex>
+  <order>user, srcip</order>
+</decoder>
+
+<decoder name="openwrt-dropbear-conn">
+  <parent>openwrt-dropbear</parent>
+  <regex>Child connection from (\S+):</regex>
+  <order>srcip</order>
+</decoder>
+
+<decoder name="openwrt-dropbear-exit">
+  <parent>openwrt-dropbear</parent>
+  <regex>Exit \((\S+)\)</regex>
+  <order>user</order>
+</decoder>
+
+<decoder name="openwrt-hostapd">
+  <program_name>hostapd</program_name>
+</decoder>
+
+<decoder name="openwrt-hostapd-disconnect">
+  <parent>openwrt-hostapd</parent>
+  <regex>AP-STA-DISCONNECTED (\S+)</regex>
+  <order>srcip</order>
+</decoder>
+
+<decoder name="openwrt-hostapd-connect">
+  <parent>openwrt-hostapd</parent>
+  <regex>AP-STA-CONNECTED (\S+)</regex>
+  <order>srcip</order>
+</decoder>
