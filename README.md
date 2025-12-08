@@ -14,6 +14,8 @@ uci commit system
 #rsyslog recider frm openwrt add confi last end of file -> revier port number --> 515,  and openwrt ip --> 10.20.0.100
 #Add at the end:
 
+nano /etc/rsyslog.conf
+
 $ModLoad imudp
 $UDPServerRun 515
 
